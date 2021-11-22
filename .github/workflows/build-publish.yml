@@ -38,7 +38,7 @@ jobs:
         logout: true
     - name: Docker Push
       run: |
-        docker build -t "facade-reservation-mngr:main" .
+        docker build -t "nicolasdockerbdb/facade-reservation-mngr:main" .
         docker push nicolasdockerbdb/facade-reservation-mngr:main
     
   
