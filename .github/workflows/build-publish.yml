@@ -36,4 +36,9 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME}}
         password: ${{ secrets.DOCKER_PASSWORD}}
         logout: true
+    - name: Docker Push
+      run: |
+        docker build -t "facade-reservation-mngr:main" .
+        docker push nicolasdockerbdb/facade-reservation-mngr:main
+    
   
