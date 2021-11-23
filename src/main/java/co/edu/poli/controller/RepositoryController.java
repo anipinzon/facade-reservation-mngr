@@ -51,12 +51,21 @@ public class RepositoryController {
 	
 	@PutMapping("/reservation/{id}")
 	public Reservation updateReservationStatus(@RequestBody Reservation reservation) {
-		Reservation _current = reservationRepository.findById(reservation.getId()).get();
-		_current.setUsername(reservation.getUsername());
-		_current.setStatus(reservation.getStatus());
-		_current.setPrice(reservation.getPrice());
-		reservationRepository.save(_current);		
-		return _current;
+		try {
+			Reservation _current = reservationRepository.findById(reservation.getId()).get();
+			_current.setUsername(reservation.getUsername());
+			_current.setStatus(reservation.getStatus());
+			_current.setPrice(reservation.getPrice());
+			reservationRepository.save(_current);		
+			return _current;
+		} catch (NoSuchElementException e) {
+			System.out.println("User not found");
+			return null;
+		} catch (Exception e) {
+			return null;
+		}
+		
+		
 	}
 
 }
