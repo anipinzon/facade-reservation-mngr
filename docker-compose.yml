@@ -45,7 +45,7 @@ services:
   reservation:
     restart: always
     container_name: reservation
-    image: nicolasdockerbdb/facade-reservation-mngr:0.0.16-SNAPSHOT
+    image: nicolasdockerbdb/facade-reservation-mngr:0.0.17.1-SNAPSHOT
     ports:
       - 8080:8080
     environment:
@@ -77,6 +77,20 @@ services:
       - rentail-application
     depends_on:
       - postgresql
+      
+  konga:
+    image: pantsel/konga
+    container_name: konga
+    restart: always
+    ports:
+      - 1337:1337
+    environment:
+      NODE_ENV: production
+    networks:
+      - rentail-application
+    depends_on:
+      - kong
+      
       
 volumes:
   postgresql_data:
