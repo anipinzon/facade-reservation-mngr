@@ -15,7 +15,7 @@ services:
       - rentail-application
   
   mysql:
-    image: mysql:5.7
+    image: mysql
     restart: always
     container_name: mysql
     environment:
@@ -45,11 +45,11 @@ services:
   reservation:
     restart: always
     container_name: reservation
-    image: nicolasdockerbdb/facade-reservation-mngr:0.0.6-SNAPSHOT
+    image: nicolasdockerbdb/facade-reservation-mngr:latest
     ports:
       - 8080:8080
     environment:
-      SPRING_DATA_MONGODB_URI: mongodb://db_application:superSecret@mongodb:27017/bd-rental
+      SPRING_DATA_MONGODB_URI: mongodb://root:example@mongodb:27017/admin
     networks:
       - rentail-application
     depends_on:

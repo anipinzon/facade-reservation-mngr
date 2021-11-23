@@ -34,6 +34,8 @@ jobs:
       run: |
         export VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
         docker build -t nicolasdockerbdb/facade-reservation-mngr:$VERSION .
+        docker tag nicolasdockerbdb/facade-reservation-mngr:$VERSION nicolasdockerbdb/facade-reservation-mngr:latest
         docker push nicolasdockerbdb/facade-reservation-mngr:$VERSION
+        docker push nicolasdockerbdb/facade-reservation-mngr:latest
     
   
