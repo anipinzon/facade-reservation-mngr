@@ -32,11 +32,10 @@ public class RepositoryController {
 		System.out.println("Inside the controller...");
 		System.out.println(newReservation.toString());
 		reservationRepository.save(newReservation);
-		/*
-		 * Reservation _reservation = reservationFacade.makeReservation(newReservation);
-		 * System.out.println(_reservation.toString());
-		 * reservationRepository.save(_reservation);
-		 */		
+		Reservation _reservation = reservationFacade.makeReservation(newReservation);
+		System.out.println(_reservation.toString());
+		reservationRepository.save(_reservation);
+		 		
 		return newReservation;
 				
 	}
