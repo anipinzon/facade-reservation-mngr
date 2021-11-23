@@ -6,6 +6,7 @@ public class MotorcycleFare implements Fare {
 
 	@Override
 	public Integer calculateFare(Integer days) {
+		System.out.println("Motorcycle Fare");
 		return (int) (days * fare);
 	}
 }

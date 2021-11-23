@@ -4,7 +4,8 @@ import co.edu.poli.model.Vehicle;
 
 public class FareFactory {
 	
-	public Fare evaluateFare(Vehicle vehicle) {		
+	public Fare evaluateFare(Vehicle vehicle) {
+		System.out.println("Inside the factory...");
 		if (vehicle.getType() == "car") {
 			return new CarFare();
 		} else if (vehicle.getType() == "motorcycle") {

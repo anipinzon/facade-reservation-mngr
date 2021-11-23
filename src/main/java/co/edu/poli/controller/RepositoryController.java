@@ -28,6 +28,7 @@ public class RepositoryController {
 	
 	@PostMapping("/reservation")
 	public Reservation postReservation(@RequestBody Reservation newReservation) {
+		System.out.println("Inside the controller");
 		reservationRepository.save(reservationFacade.makeReservation(newReservation));		
 		return newReservation;		
 	}

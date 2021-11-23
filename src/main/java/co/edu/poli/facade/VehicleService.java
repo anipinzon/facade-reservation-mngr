@@ -14,12 +14,19 @@ public class VehicleService {
 	}
 	
 	public Vehicle getVehicle(Long id) {
-		String response = http.get("/vehicles/" + id);
-		System.out.println(response);
-		Vehicle vehicle = new Vehicle();
-		vehicle.setId(id);
-		vehicle.setType(response);
-		return vehicle;
+		System.out.println("Inside service vehicle...");
+		try {
+			String response = http.get("/vehicles/" + id);
+			System.out.println(response);
+			Vehicle vehicle = new Vehicle();
+			vehicle.setId(id);
+			vehicle.setType(response);
+			return vehicle;			
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+		
 	}
 	
 	

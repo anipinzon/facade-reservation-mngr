@@ -6,7 +6,8 @@ public class CarFare implements Fare{
 	public Double tax = 1.2;
 
 	@Override
-	public Integer calculateFare(Integer days) {		
+	public Integer calculateFare(Integer days) {
+		System.out.println("Car Motorcylce");
 		return (int) (days * fare * tax);
 	}
 }
