@@ -37,6 +37,9 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_USERNAME: db_application
+      MONGO_INITDB_PASSWORD: superSecret
+      MONGO_INITDB_DATABASE: bd-rental
     ports:
      - 27017:27017
     networks:
@@ -45,9 +48,15 @@ services:
   reservation:
     restart: always
     container_name: reservation
-    image: amazoncorretto:11-alpine-jdk  
+    image: nicolasdockerbdb/facade-reservation-mngr:0.0.1 
     ports:
       - 8080:8080
+    environment:
+      MONGODB_HOST: mongodb
+      MONGODB_USER: db_application
+      MONGODB_PASS: superSecret
+      MONGODB_PORT: 27017
+      MONGODB_DBNAME: bd-rental
     networks:
       - rentail-application
     depends_on:
