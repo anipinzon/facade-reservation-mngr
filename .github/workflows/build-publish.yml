@@ -32,7 +32,8 @@ jobs:
         logout: true
     - name: Docker Push
       run: |
-        docker build -t "nicolasdockerbdb/facade-reservation-mngr:0.0.2-SNAPSHOT" .
-        docker push nicolasdockerbdb/facade-reservation-mngr:0.0.2-SNAPSHOT
+        export VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+        docker build -t nicolasdockerbdb/facade-reservation-mngr:$VERSION .
+        docker push nicolasdockerbdb/facade-reservation-mngr:$VERSION
     
   
