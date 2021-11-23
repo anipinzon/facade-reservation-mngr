@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,6 +33,16 @@ public class RepositoryController {
 	@GetMapping("/reservation/{id}")
 	public Reservation postReservation(@PathVariable String id) {		
 		return reservationRepository.findById(id).get();		
+	}
+	
+	@PutMapping("/reservation/{id}")
+	public Reservation updateReservationStatus(@RequestBody Reservation reservation) {
+		Reservation _current = reservationRepository.findById(reservation.getId()).get();
+		_current.setUsername(reservation.getUsername());
+		_current.setStatus(reservation.getStatus());
+		_current.setPrice(reservation.getPrice());
+		reservationRepository.save(_current);		
+		return _current;
 	}
 
 }

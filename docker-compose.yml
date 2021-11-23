@@ -1,8 +1,10 @@
 version: '3'
+
 services:
   postgresql:
     image: docker.io/bitnami/postgresql:11
     container_name: postgresql
+    restart: always
     volumes:
       - postgresql_data:/bitnami/postgresql
     environment:
@@ -11,9 +13,11 @@ services:
       - POSTGRESQL_DATABASE=kong
     networks:
       - rentail-application
+      
   kong:
-    image: docker.io/bitnami/kong:2
+    image: docker.io/bitnami/kong:2.6.0
     container_name: kong
+    restart: always
     ports:
       - 8000:8000
       - 8443:8443
@@ -23,16 +27,39 @@ services:
       - KONG_PG_PASSWORD=bitnami
     networks:
       - rentail-application
+    depends_on:
+      - postgresql
+      
+  mongodb:
+    image: mongo
+    restart: always
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+     - 27017:27017
+    networks:
+      - rentail-application
+     
   reservation:
+    restart: always
     container_name: reservation
     image: amazoncorretto:11-alpine-jdk  
     ports:
       - 8080:8080
+    networks:
+      - rentail-application
+    depends_on:
+      - kong
+      - mongodb
       
-        
 volumes:
   postgresql_data:
     driver: local
+    
 networks:
     rentail-application:
         driver: bridge
+        
+        
