@@ -32,9 +32,6 @@ public class RepositoryController {
 			System.out.println("Inside the controller...");
 			reservationRepository.save(reservationFacade.makeReservation(newReservation));		
 			return newReservation;
-		} catch (NullPointerException e) {
-			System.out.println(e);
-			return null;
 		} catch (Exception e) {
 			return null;
 		}
