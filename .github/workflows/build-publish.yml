@@ -33,6 +33,6 @@ jobs:
     - name: Docker Push
       run: |
         docker build -t "nicolasdockerbdb/facade-reservation-mngr:0.0.1" .
-        docker push nicolasdockerbdb/facade-reservation-mngr:0.0.1
+        docker push nicolasdockerbdb/facade-reservation-mngr:0.0.2-SNAPSHOT
     
   
