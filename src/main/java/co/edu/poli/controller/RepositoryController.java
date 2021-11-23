@@ -1,5 +1,7 @@
 package co.edu.poli.controller;
 
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,8 +33,17 @@ public class RepositoryController {
 	}
 	
 	@GetMapping("/reservation/{id}")
-	public Reservation postReservation(@PathVariable String id) {		
-		return reservationRepository.findById(id).get();		
+	public Reservation postReservation(@PathVariable String id) {
+		
+		try {
+			return reservationRepository.findById(id).get();
+		} catch (NoSuchElementException e) {
+			System.out.println("User not found");
+			return null;
+		} catch (Exception e) {
+			return null;
+		}
+				
 	}
 	
 	@PutMapping("/reservation/{id}")
