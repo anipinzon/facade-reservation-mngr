@@ -28,13 +28,10 @@ public class RepositoryController {
 	
 	@PostMapping("/reservation")
 	public Reservation postReservation(@RequestBody Reservation newReservation) {
-		try {
-			System.out.println("Inside the controller...");
-			reservationRepository.save(reservationFacade.makeReservation(newReservation));		
-			return newReservation;
-		} catch (Exception e) {
-			return null;
-		}
+		System.out.println("Inside the controller...");
+		System.out.println(newReservation.toString());
+		reservationRepository.save(reservationFacade.makeReservation(newReservation));		
+		return newReservation;
 				
 	}
 	

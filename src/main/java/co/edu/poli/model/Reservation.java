@@ -76,6 +76,14 @@ public class Reservation {
 	public void setDays(Integer days) {
 		this.days = days;
 	}
+
+	@Override
+	public String toString() {
+		return "Reservation [id=" + id + ", username=" + username + ", days=" + days + ", idVehicle=" + idVehicle
+				+ ", price=" + price + ", status=" + status + "]";
+	}
+	
+	
 	
 
 }
