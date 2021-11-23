@@ -52,11 +52,7 @@ services:
     ports:
       - 8080:8080
     environment:
-      MONGODB_HOST: mongodb
-      MONGODB_USER: db_application
-      MONGODB_PASS: superSecret
-      MONGODB_PORT: 27017
-      MONGODB_DBNAME: bd-rental
+      SPRING_DATA_MONGODB_URI: mongodb://db_application:superSecret@mongodb:27017/bd-rental
     networks:
       - rentail-application
     depends_on:
