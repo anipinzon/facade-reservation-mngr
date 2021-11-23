@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>co.edu.poli.reservation</groupId>
 	<artifactId>reservation</artifactId>
-	<version>0.0.15-SNAPSHOT</version>
+	<version>0.0.16-SNAPSHOT</version>
 	<name>reservation-mngr</name>
 	<description>Servicio encargado de crear la reservación. Consulta el servicio de vehiculos y envia el evento al servicio de renta para su respectiva creación.</description>
 	<properties>

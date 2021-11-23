@@ -45,7 +45,7 @@ services:
   reservation:
     restart: always
     container_name: reservation
-    image: nicolasdockerbdb/facade-reservation-mngr:0.0.15-SNAPSHOT
+    image: nicolasdockerbdb/facade-reservation-mngr:0.0.16-SNAPSHOT
     ports:
       - 8080:8080
     environment:

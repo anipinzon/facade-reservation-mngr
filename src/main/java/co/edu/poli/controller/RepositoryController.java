@@ -30,6 +30,7 @@ public class RepositoryController {
 	public Reservation postReservation(@RequestBody Reservation newReservation) {
 		System.out.println("Inside the controller...");
 		System.out.println(newReservation.toString());
+		reservationRepository.save(newReservation);
 		Reservation _reservation = reservationFacade.makeReservation(newReservation);	
 		System.out.println(_reservation.toString());
 		reservationRepository.save(_reservation);		
