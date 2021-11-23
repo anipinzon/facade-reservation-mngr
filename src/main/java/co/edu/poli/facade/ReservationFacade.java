@@ -15,7 +15,7 @@ public class ReservationFacade {
 		System.out.println("Inside the facade...");
 		
 		System.out.println("Getting id from request body...");
-		Long vehicle_id = reservation.getIdVehicle();
+		int vehicle_id = reservation.getIdVehicle();
 		
 		Vehicle vehicle = vehicleService.getVehicle(vehicle_id);
 		

@@ -14,13 +14,13 @@ public class Reservation {
 	private Integer days;
 	
 	@Field(name = "id_vehicle")
-	private Long idVehicle;
+	private int idVehicle;
 	
 	private int price;
 	
 	private String status;
 	
-	public Reservation(String username, Integer days, Long idVehicle) {
+	public Reservation(String username, Integer days, int idVehicle) {
 		super();
 		this.username = username;
 		this.days = days;
@@ -45,11 +45,11 @@ public class Reservation {
 		this.username = username;
 	}
 
-	public Long getIdVehicle() {
+	public int getIdVehicle() {
 		return idVehicle;
 	}
 
-	public void setIdVehicle(Long idVehicle) {
+	public void setIdVehicle(int idVehicle) {
 		this.idVehicle = idVehicle;
 	}
 

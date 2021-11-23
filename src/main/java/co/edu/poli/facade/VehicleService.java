@@ -13,7 +13,7 @@ public class VehicleService {
 		return response;
 	}
 	
-	public Vehicle getVehicle(Long id) {
+	public Vehicle getVehicle(int id) {
 		System.out.println("Inside service vehicle...");
 		try {
 			String response = http.get("/vehicles/" + id);

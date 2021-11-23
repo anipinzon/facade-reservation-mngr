@@ -2,7 +2,7 @@ package co.edu.poli.model;
 
 public class Vehicle {
 	
-	private Long id;
+	private int id;
 	
 	private String type;
 	
@@ -12,11 +12,11 @@ public class Vehicle {
 
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
