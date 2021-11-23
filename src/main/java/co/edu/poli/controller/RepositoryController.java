@@ -25,18 +25,16 @@ public class RepositoryController {
 	private ReservationRepository reservationRepository;
 	
 	
-	private ReservationFacade reservationFacade;
+	private ReservationFacade reservationFacade = new ReservationFacade();
 	
 	@PostMapping("/reservation")
 	public Reservation postReservation(@RequestBody Reservation newReservation) {
 		System.out.println("Inside the controller...");
 		System.out.println(newReservation.toString());
 		reservationRepository.save(newReservation);
-		/*
-		 * Reservation _reservation = reservationFacade.makeReservation(newReservation);
-		 * System.out.println(_reservation.toString());
-		 * reservationRepository.save(_reservation);
-		 */
+		Reservation _reservation = reservationFacade.makeReservation(newReservation);
+		System.out.println(_reservation.toString());
+		reservationRepository.save(_reservation); 
 		 		
 		return newReservation;
 				
