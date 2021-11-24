@@ -8,8 +8,8 @@ import co.edu.poli.model.Vehicle;
 
 public class ReservationFacade {
 	
-	private VehicleService vehicleService;
-	private RentalService rentalService;
+	private VehicleService vehicleService = new VehicleService();
+	private RentalService rentalService = new RentalService();
 	
 	public Reservation makeReservation(Reservation reservation) {
 		System.out.println("Inside the facade...");
